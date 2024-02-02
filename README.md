@@ -6,9 +6,9 @@ Kubernetes é uma plataforma de código aberto utilizada para automatizar a impl
 
 A arquitetura do Kubernetes é dividida em duas partes principais: o plano de controle e os nós (ou workers).
 
-### Plano de Controle
+### Plano de Controle (Control Plane) 
 
-O plano de controle é responsável por gerenciar o estado global do cluster Kubernetes, incluindo agendamento e comunicação entre os componentes do cluster.
+O Control Plane é responsável por gerenciar o estado global do cluster Kubernetes, incluindo agendamento e comunicação entre os componentes do cluster.
 
 - **API Server (Servidor de API):** Ponto central de comunicação do plano de controle, expõe a API do Kubernetes.
 - **etcd:** Armazenamento de chave-valor distribuído que guarda as informações de configuração do cluster.
@@ -18,7 +18,7 @@ O plano de controle é responsável por gerenciar o estado global do cluster Kub
 
 ### Nós (Workers)
 
-Os nós são as máquinas que executam os contêineres e os pods, incluindo os componentes necessários para essa execução.
+Os workers são as máquinas que executam os contêineres e os pods, incluindo os componentes necessários para essa execução.
 
 - **Kubelet:** Agente que garante que os contêineres estão rodando em um Pod.
 - **Kube-Proxy:** Gerencia as regras de rede nos nós, permitindo a comunicação para dentro e fora dos contêineres.
