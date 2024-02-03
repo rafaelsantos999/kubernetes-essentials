@@ -31,19 +31,6 @@ echo -e "\nCriando chave SSH com o nome 'github-$data_hora'...\n"
 ssh-keygen -t rsa -b 4096 -C "$ssh_email" -f ~/.ssh/github-"$data_hora" -N ""
 echo -e "\nChave SSH 'github-$data_hora' criada.\n"
 
-# Exibir a chave pública SSH
-echo -e "Chave pública SSH 'github-$data_hora':\n"
-cat ~/.ssh/github-"$data_hora".pub
-echo -e "\nCopie a chave pública acima para usar onde precisar.\n"
-
-# Contador regressivo de 10 segundos para que o usuário possa copiar a chave
-echo -n "Você tem 30 segundos para copiar a chave: "
-for i in $(seq 30 -1 1); do
-    echo -ne "\r$i segundos restantes... "
-    sleep 1
-done
-echo -e "\rContinuando...\n"
-
 # Instalar o kind
 echo -e "Instalando o Kind...\n"
 if [ $(uname -m) = x86_64 ]; then
@@ -76,12 +63,10 @@ echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
 source ~/.bashrc
 echo -e "\nConfiguração do kubectl concluída.\n"
 
-# No final do script, antes de reiniciar
-echo "O sistema precisa ser reiniciado para aplicar todas as mudanças. Deseja reiniciar agora? (y/n)"
-read reboot_choice
-if [ "$reboot_choice" = "y" ]; then
-    echo -e "\nReiniciando o sistema...\n"
-    sudo reboot
-else
-    echo -e "\nCertifique-se de reiniciar o sistema mais tarde para aplicar todas as mudanças.\n"
-fi
+# Exibir a chave pública SSH
+echo -e "Chave pública SSH 'github-$data_hora':\n"
+cat ~/.ssh/github-"$data_hora".pub
+echo -e "\nCopie a chave pública acima para usar onde precisar.\n"
+
+# Aviso para Reiniciar o computador
+echo -e "\nPara que as mudanças sejam efetivadas reinicie o servidor. Obrigado.\n"
