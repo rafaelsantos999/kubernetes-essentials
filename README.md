@@ -1,3 +1,11 @@
+# Container Engine (Motor de Contêiner)
+
+O Container Engine é um componente chave para a execução de contêineres, fornecendo o ambiente necessário para construir, executar e gerenciar os contêineres.
+
+- **Compatível com diversos runtimes:** Kubernetes suporta runtimes de contêineres como Docker, containerd, CRI-O, entre outros, através da Interface de Runtime de Contêiner (CRI).
+
+Cada componente do Kubernetes desempenha um papel específico, trabalhando juntos para criar uma plataforma robusta para a gestão automatizada de aplicações em contêineres.
+
 # Kubernetes
 
 Kubernetes é uma plataforma de código aberto utilizada para automatizar a implantação, o escalonamento e a operação de aplicações em contêineres. Facilita a gestão de aplicações em larga escala, permitindo a automação de diversas tarefas.
@@ -24,11 +32,4 @@ Os workers são as máquinas que executam os contêineres e os pods, incluindo o
 - **Kube-Proxy:** Gerencia as regras de rede nos nós, permitindo a comunicação para dentro e fora dos contêineres.
 - **Container Runtime:** Ambiente de execução responsável por executar os contêineres.
 
-### Container Engine (Motor de Contêiner)
-
-O Container Engine é um componente chave para a execução de contêineres, fornecendo o ambiente necessário para construir, executar e gerenciar os contêineres.
-
-- **Compatível com diversos runtimes:** Kubernetes suporta runtimes de contêineres como Docker, containerd, CRI-O, entre outros, através da Interface de Runtime de Contêiner (CRI).
-
-Cada componente do Kubernetes desempenha um papel específico, trabalhando juntos para criar uma plataforma robusta para a gestão automatizada de aplicações em contêineres.
 
