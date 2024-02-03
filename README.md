@@ -61,9 +61,7 @@ O Control Plane do Kubernetes gerencia os Workers e os Pods neles. Ele toma deci
 
 - **Pods**: A menor unidade de implantação que você pode criar e gerenciar no Kubernetes. Cada Pod encapsula um ou mais containers.
 - **ReplicaSets**: Garante que um número específico de réplicas de um Pod estejam rodando a qualquer momento.
-- **
-
-Deployments**: Fornece atualizações declarativas para Pods e ReplicaSets, facilitando a atualização e o rollback de aplicações.
+- **Deployments**: Fornece atualizações declarativas para Pods e ReplicaSets, facilitando a atualização e o rollback de aplicações.
 - **Services**: Uma abstração que define um conjunto lógico de Pods e uma política para acessá-los, geralmente através de um IP fixo ou DNS name.
 
 ## O que é o Kind?
