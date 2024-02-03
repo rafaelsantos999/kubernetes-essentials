@@ -30,7 +30,7 @@ Esses controladores fornecem recursos adicionais como replicação, auto-reparo 
 
 Um Pod é definido usando um arquivo YAML ou JSON que especifica a configuração desejada, incluindo os contêineres que ele deve conter e os recursos de rede e armazenamento que precisa. Aqui está um exemplo básico de definição de um Pod:
 
-`yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -38,7 +38,8 @@ metadata:
 spec:
   containers:
   - name: meu-container
-    image: minha-imagem`
+    image: minha-imagem
+```
 
 Os Pods são fundamentais para o funcionamento do Kubernetes, pois permitem que aplicações sejam executadas de forma confiável e escalável em um ambiente de cluster.
 
