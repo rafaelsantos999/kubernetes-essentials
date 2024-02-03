@@ -1,5 +1,7 @@
 #!/bin/bash
 
+trap 'echo "Operação de cópia interrompida. Continuando..."' SIGINT
+
 # Solicitar o novo hostname do usuário
 echo "Digite o novo hostname para este host:"
 read new_hostname
