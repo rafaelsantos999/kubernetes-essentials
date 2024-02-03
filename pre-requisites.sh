@@ -21,16 +21,26 @@ echo -e "$ip_address\t$new_hostname" | sudo tee -a /etc/hosts > /dev/null
 echo "Digite o e-mail para a chave SSH 'github':"
 read ssh_email
 
-# Criar chave SSH
-echo -e "\nCriando chave SSH chamada 'github'...\n"
-ssh-keygen -t rsa -b 4096 -C "$ssh_email" -f ~/.ssh/github -N ""
-echo -e "\nChave SSH 'github' criada.\n"
+# Obter data e hora no formato brasileiro e HH:MM
+data_hora=$(date +"%d-%m-%Y-%H:%M")
 
+# Criar chave SSH com o nome baseado na data e hora atuais
+echo -e "\nCriando chave SSH com o nome 'github-$data_hora'...\n"
+ssh-keygen -t rsa -b 4096 -C "$ssh_email" -f ~/.ssh/github-"$data_hora" -N ""
+echo -e "\nChave SSH 'github-$data_hora' criada.\n"
 
 # Exibir a chave pública SSH
-echo -e "Chave pública SSH 'github':\n"
-cat ~/.ssh/github.pub
+echo -e "Chave pública SSH 'github-$data_hora':\n"
+cat ~/.ssh/github-"$data_hora".pub
 echo -e "\nCopie a chave pública acima para usar onde precisar.\n"
+
+# Contador regressivo de 10 segundos para que o usuário possa copiar a chave
+echo -n "Você tem 30 segundos para copiar a chave: "
+for i in $(seq 30 -1 1); do
+    echo -ne "\r$i segundos restantes... "
+    sleep 1
+done
+echo -e "\rContinuando...\n"
 
 # Instalar o kind
 echo -e "Instalando o Kind...\n"
