@@ -38,8 +38,7 @@ metadata:
 spec:
   containers:
   - name: meu-container
-    image: minha-imagem
-
+    image: minha-imagem````
 
 Os Pods são fundamentais para o funcionamento do Kubernetes, pois permitem que aplicações sejam executadas de forma confiável e escalável em um ambiente de cluster.
 
