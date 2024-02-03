@@ -1,10 +1,21 @@
 #!/bin/bash
 
-# Mudar o hostname
+# Solicitar o novo hostname do usuário
 echo "Digite o novo hostname para este host:"
 read new_hostname
-sudo hostnamectl set-hostname "$new_hostname"
-echo -e "\nHostname alterado para $new_hostname.\n"
+
+# Mudar o hostname permanentemente
+echo -e "\nMudando o hostname...\n"
+sudo sh -c "echo $new_hostname > /etc/hostname"
+
+# Encontrar o endereço IP local principal
+ip_address=$(hostname -I | awk '{print $1}')
+echo "Endereço IP local encontrado: $ip_address"
+
+# Atualizar /etc/hosts com o novo hostname e o endereço IP local
+echo -e "\nAtualizando /etc/hosts com o novo hostname e o endereço IP local...\n"
+sudo sed -i "s/127\.0\.1\.1.*/127.0.1.1\t$new_hostname/g" /etc/hosts
+echo -e "$ip_address\t$new_hostname" | sudo tee -a /etc/hosts > /dev/null
 
 # Solicitar ao usuário que digite o e-mail para a chave SSH
 echo "Digite o e-mail para a chave SSH 'github':"
@@ -52,3 +63,13 @@ echo 'alias k=kubectl' >>~/.bashrc
 echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
 source ~/.bashrc
 echo -e "\nConfiguração do kubectl concluída.\n"
+
+# No final do script, antes de reiniciar
+echo "O sistema precisa ser reiniciado para aplicar todas as mudanças. Deseja reiniciar agora? (y/n)"
+read reboot_choice
+if [ "$reboot_choice" = "y" ]; then
+    echo -e "\nReiniciando o sistema...\n"
+    sudo reboot
+else
+    echo -e "\nCertifique-se de reiniciar o sistema mais tarde para aplicar todas as mudanças.\n"
+fi
