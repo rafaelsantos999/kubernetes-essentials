@@ -1,4 +1,4 @@
-# Introdução ao Kubernetes e Conceitos de Containers
+# Kubernetes Essentials
 
 Este documento visa esclarecer os conceitos fundamentais associados ao mundo dos containers, com foco especial no Kubernetes, uma plataforma de código aberto para automação de implantação, escalonamento e gerenciamento de aplicações em containers.
 
